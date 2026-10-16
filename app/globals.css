@@ -1,26 +1,111 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@import "./assets/fonts/font.scss";
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    -ms-overflow-style: none;
+    font-family: var(--font-pretendard);
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes slideAnim {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.looper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.looper__innerList {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+.looper__innerList[data-animate="true"] .looper__listInstance {
+    animation: slideAnim linear infinite;
+}
+
+.looper__listInstance {
+    display: flex;
+    width: max-content;
+
+    animation: none;
+}
+
+.contentBlock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    margin: 10px;
+    padding: 16px;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 16px;
+}
+
+.contentBlock--one {
+    width: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.contentBlock--one:last-of-type {
+    color: var(--green);
+    margin-right: 36px;
+}
+
+.contentBlock--two {
+    color: var(--green);
+    font-size: 48px;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.fcenter {
+    @apply flex justify-center items-center;
+}
+
+.fbetween {
+    @apply flex justify-between items-center;
+}
+
+.mcenter {
+    @apply mx-auto my-0;
+}
+
+@theme {
+    --breakpoint-*: initial;
+    --breakpoint-low: 320px;
+    --breakpoint-xsm: 430px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+    --breakpoint-half: 2240px;
+
+    --leading-base: 18.72px;
+    --leading-lg: 22.46px;
+    --leading-mid: 25px;
+    --leading-xl: 38px;
+    --leading-2xl: 44.93px;
+
+    --color-primary: #F90E61;
+    --color-whiteBlue: #F6F6F6;
+    --color-whiteLed: #FEF3F7;
+    --color-main: #16161D;
+    --color-linear-l-white: linear-gradient(to left, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));
+    --color-linear-r-white: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 1));
 }
