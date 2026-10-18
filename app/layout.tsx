@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./components/header";
 import localFont from "next/font/local"
 import Footer from "./components/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "KQR",
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div className="max-w-7xl mcenter">
             {children}
           </div>
+          <Analytics />
         </main>
         <Footer />
       </body>
